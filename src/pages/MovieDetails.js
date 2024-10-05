@@ -26,7 +26,7 @@ export const MovieDetails = () => {
       console.log(json);
     };
     fetchMovie();
-  }, []);
+  }, [params.id]);
 
   useDocumentTitle(movieData.title);
 

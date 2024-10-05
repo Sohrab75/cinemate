@@ -16,7 +16,7 @@ export const Search = ({apiPath}) => {
   return ( 
   <>
   <p className="pl-4 pt-20 mb-2 text-3xl text-gray-700 dark:text-white">{movies.length===0?`No Result Found for '${queryTerm}'`:`Results for '${queryTerm}'`}</p>
-  <section className="grid grid-cols-4 gap-3 p-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  justify-items-center">
+  <section className="grid grid-cols-4 gap-3 p-4 xsm:grid-cols-1 xsm:px-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  justify-items-center">
       {movies && movies.map((movie)=>(
         <Card movies={movie} key={movie.id}/>
       ))}
