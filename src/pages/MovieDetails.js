@@ -3,17 +3,19 @@ import { useParams } from "react-router-dom";
 import bkpImage from "../assets/image/bkp_images.jpg";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
+
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMDI1MmVjZjQzNDM5NGYyMjQ0NzgyMTQ0MWE4MDJhZSIsIm5iZiI6MTcyNzU3OTUxNy40OTI4Nywic3ViIjoiNjZmOGMyZGMyYzRiZGM5ZGIwNWY1NTJjIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.Zi-5NQ0qJDuc7E192Dqo6glwA9hP7CKyoYcWy6PUQYY",
+  },
+};
+
 export const MovieDetails = () => {
   const [movieData, setMovieData] = useState({});
   const params = useParams();
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMDI1MmVjZjQzNDM5NGYyMjQ0NzgyMTQ0MWE4MDJhZSIsIm5iZiI6MTcyNzU3OTUxNy40OTI4Nywic3ViIjoiNjZmOGMyZGMyYzRiZGM5ZGIwNWY1NTJjIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.Zi-5NQ0qJDuc7E192Dqo6glwA9hP7CKyoYcWy6PUQYY",
-    },
-  };
 
   useEffect(() => {
     const fetchMovie = async () => {
