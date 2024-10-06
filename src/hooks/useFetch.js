@@ -1,4 +1,14 @@
-import { useEffect, useState, useMemo } from 'react';
+
+import { useEffect, useState } from 'react'
+
+
+const options = {
+  method: 'GET',
+  headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`
+  }
+};
 
 export const useFetch = (apiPath, queryTerm) => {
     const [data, setData] = useState([]);
@@ -6,14 +16,6 @@ export const useFetch = (apiPath, queryTerm) => {
     const url = queryTerm 
         ? `https://api.themoviedb.org/3/${apiPath}?language=en-US&page=1&query=${queryTerm}`
         : `https://api.themoviedb.org/3/${apiPath}?language=en-US&page=1`;
-
-    const options = useMemo(() => ({
-        method: 'GET',
-        headers: {
-            accept: 'application/json',
-            Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`
-        }
-    }), []); // Empty array because the options don't change
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,7 +31,7 @@ export const useFetch = (apiPath, queryTerm) => {
             }
         };
         fetchData();
-    }, [url, options]);
+    }, [url]); // 'options' and 'url' already include 'queryTerm'
 
     return { data };
 }

@@ -95,7 +95,7 @@ export const Header = () => {
                 </svg>
                 <span className="sr-only">Search icon</span>
               </div>
-              <form class="max-w-sm mx-auto" onSubmit={handleSubmit}>
+              <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
                 <input
                   name="search"
                   type="text"
